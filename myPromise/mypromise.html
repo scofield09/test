@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <script src="mypromise.js"></script>
+    <script>
+        // let oP = new MyPromise((res,rej)=>{
+        //   setTimeout(()=>{
+        //       res(0)
+        //   },2000)
+        // });
+
+        // oP.then((val)=>{
+        //     // throw new Error('l');
+        //     console.log(val);
+        //     return new MyPromise((res,rej)=>{
+        //         rej(1);
+        //     })
+        // },(reason)=>{
+        //     console.log(reason,'no');
+        //     return 3;
+        // }).then((val)=>{
+        //     console.log(val,'ok');
+        // },(reason)=>{
+        //     console.log(reason);
+        // })
+
+
+
+    //   let oP = MyPromise.resolve('rr');
+
+    //   oP.then((val)=>{
+    //       console.log(val)
+    //   },(reason)=>{
+    //       console.log(reason);
+    //   })
+
+
+
+     
+    // let oP = new MyPromise((res,rej)=>{
+    //     rej(00);
+    // })
+    // oP.catch((val)=>{
+    //     console.log(val)
+    // }).then((val)=>{
+    //     console.log(val);
+    // })
+
+
+
+
+    //  let oP = new MyPromise((res,rej)=>{
+    //     rej(2);
+    // })
+    // oP.finally(()=>{
+    //     console.log(0)
+    // }).then((val)=>{
+    //   console.log(val)
+    // },(reason)=>{
+    //     console.log(reason)
+    // })
+ 
+
+
+
+    function readFile(data){
+         return new Promise((res,rej)=>{
+             setInterval(()=>{
+                 res(data)
+             },parseInt(Math.random()*500));
+         })
+    }
+
+    MyPromise.all([readFile('1'),readFile('2'),3]).then((val)=>{
+        console.log(val);
+    },(reason)=>{
+        console.log(reason);
+    })
+
+    
+    </script>
+</body>
+
+</html>
